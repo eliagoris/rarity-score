@@ -1,10 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-let nfts = require("../data/collection.json");
+let nfts = require("../data/collectionItems.json");
 
 const get_all_traits = (nft_arr) => {
   let all_traits = {};
   let attr_count = {}; //track attribute count of each nft
-  console.log(nft_arr.length);
+
   for (let i = 0; i < nft_arr.length; i++) {
     let nft = nft_arr[i];
     if (nft) {
@@ -50,7 +50,7 @@ const get_trait_rarity_score = (trait_type, all_traits) => {
 
 const set_missing_traits = (nft, missing_traits, all_traits) => {
   // How many traits don't have say Eyes, Mouth
-  let totaltraits = all_traits["type"].sum;
+  let totaltraits = all_traits["Base"].sum;
   nft["missing_traits"] = [];
   for (let i = 0; i < missing_traits.length; i++) {
     let missing_trait = missing_traits[i];
@@ -93,7 +93,7 @@ const set_trait_rarity = (nft, all_traits) => {
 };
 
 const set_nft_rarity = (nft, all_traits) => {
-  let sumoftraits = all_traits["type"].sum; //All types humans, aliens
+  let sumoftraits = all_traits["Base"].sum; //All types humans, aliens
   if (nft) {
     let { attributes } = nft;
     attributes = attributes.filter(
@@ -112,7 +112,7 @@ const calculate_attribute_rarity = (nft) => {
   attributes = attributes.filter(
     (attribute) => attribute["trait_type"] && attribute["value"]
   );
-  let sumoftraits = all_traits["type"].sum;
+  let sumoftraits = all_traits["Base"].sum;
   nft["trait_count"] = {
     count: attributes.length,
     percentile: attr_count[attributes.length] / sumoftraits,
@@ -145,8 +145,7 @@ const filter_nft_attributes = (nft) => {
 export const getNFT = (id) => {
   // Retrieve nft for id
   // Precompute the frequency of each trait
-  nfts = nfts.sort((x, y) => x["id"] - y["id"]);
-  let nft = nfts[id];
+  let nft = nfts.find((nft) => nft.id === Number(id));
   if (nft) {
     filter_nft_attributes(nft);
     set_trait_rarity(nft, all_traits);
@@ -164,11 +163,11 @@ export const set_nft_rank = (nft, rank) => {
 
 const set_nfts_rank = () => {
   console.log("set nfts rank");
+
   nfts = nfts
     .map((nft) => getNFT(nft.id))
     .sort((x, y) => y["rarity_score"] - x["rarity_score"])
-    .map((nft, index) => set_nft_rank(nft, index))
-    .sort((x, y) => x["id"] - y["id"]);
+    .map((nft, index) => set_nft_rank(nft, index));
 };
 
 set_nfts_rank();

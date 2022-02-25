@@ -30,7 +30,7 @@ const Trait = (attribute) => {
 function NFT({ nft, title }) {
   const router = useRouter();
 
-  const img_url = `https://ipfs.io/ipfs/${ipfs2http(nft.image)}`;
+  const img_url = nft.image;
 
   return (
     <>
@@ -113,12 +113,12 @@ function NFT({ nft, title }) {
 
 NFT.getInitialProps = async ({ query }) => {
   let nft = await getNFT(query.id);
-  let opensea_info = await getNFTInfo(query.id);
-  nft["opensea_link"] = opensea_info["assets"][0]["permalink"];
+  // let opensea_info = await getNFTInfo(query.id);
+  // nft["opensea_link"] = opensea_info["assets"][0]["permalink"];
   nft["current_price"] = "-";
-  if (opensea_info["assets"][0]["sell_orders"])
-    nft["current_price"] =
-      opensea_info["assets"][0]["sell_orders"][0]["current_price"]; //last price
+  // if (opensea_info["assets"][0]["sell_orders"])
+  //   nft["current_price"] =
+  //     opensea_info["assets"][0]["sell_orders"][0]["current_price"]; //last price
   if (nft) return { nft, title: config.COLLECTION_TITLE };
   else return { nft: {}, title: config.COLLECTION_TITLE };
 };

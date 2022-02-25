@@ -20,7 +20,7 @@ function Home({ title, img, description, nfts, pages, filters }) {
   return (
     <div
       className="flex flex-col items-center justify-center 
-    min-h-screen bg-gradient-to-r from-rose-50 to-rose-100 h-full"
+    min-h-screen bg-gradient-to-r from-black-50 bg-gray-900 to-black-100 h-full"
       ref={ref}
     >
       <Head>

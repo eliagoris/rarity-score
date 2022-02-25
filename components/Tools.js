@@ -57,12 +57,12 @@ export const Tools = (props) => {
 
   return (
     <div onChange={handleChange} className="px-2 mt-4">
-      <h3 className="text-xs text-gray-700 uppercase mb-2 font-bold">
+      <h3 className="text-xs text-gray-100 uppercase mb-2 font-bold">
         Sort By
       </h3>
       {!(sort_by == "rarity_score" && order == "desc") && (
         <a
-          className="hover:bg-gray-300 hover:text-gray-900  cursor-pointer text-xs text-gray-700 py-2 px-2 rounded-md w-full flex items-center"
+          className="hover:bg-gray-300 hover:text-gray-900  cursor-pointer text-xs text-gray-100 py-2 px-2 rounded-md w-full flex items-center"
           onClick={() => {
             handleChange("rarity desc");
           }}
@@ -75,7 +75,7 @@ export const Tools = (props) => {
       )}
       {!(sort_by == "rarity_score" && order == "asc") && (
         <a
-          className="hover:bg-gray-300 hover:text-gray-900 cursor-pointer text-gray-700 py-2 px-2 rounded-md w-full flex items-center"
+          className="hover:bg-gray-300 hover:text-gray-900 cursor-pointer text-gray-100 py-2 px-2 rounded-md w-full flex items-center"
           onClick={() => {
             handleChange("rarity asc");
           }}
@@ -88,7 +88,7 @@ export const Tools = (props) => {
       )}
       {!(sort_by == "id" && order == "desc") && (
         <a
-          className="hover:bg-gray-300 hover:text-gray-900 cursor-pointer text-gray-700 py-2 px-2 rounded-md w-full flex items-center"
+          className="hover:bg-gray-300 hover:text-gray-900 cursor-pointer text-gray-100 py-2 px-2 rounded-md w-full flex items-center"
           onClick={() => {
             handleChange("id desc");
           }}
@@ -101,7 +101,7 @@ export const Tools = (props) => {
       )}
       {!(sort_by == "id" && order == "asc") && (
         <a
-          className="hover:bg-gray-300 hover:text-gray-900 cursor-pointer text-gray-700 py-2 px-2 rounded-md w-full flex items-center"
+          className="hover:bg-gray-300 hover:text-gray-900 cursor-pointer text-gray-100 py-2 px-2 rounded-md w-full flex items-center"
           onClick={() => {
             handleChange("id asc");
           }}

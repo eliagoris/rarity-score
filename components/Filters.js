@@ -18,13 +18,16 @@ export const Filters = (props) => {
   };
 
   return (
-    <div className="max-w-sm w-full text-xs mt-4" onChange={handleChange}>
+    <div
+      className="max-w-sm w-full text-xs mt-4 bg-gray-900"
+      onChange={handleChange}
+    >
       {filters.map((filter, index) => (
         <div className="w-full flex flex-col px-2 mt-4">
-          <h2 className="text-gray-700 uppercase font-bold mb-2">{filter}</h2>
+          <h2 className="text-gray-100 uppercase font-bold mb-2">{filter}</h2>
           {Object.keys(allTraits[filter]).map((val) => (
             <a
-              className={`bg-white cursor-pointer hover:bg-gray-300 hover:text-gray-900 rounded-md text-gray-700 py-2 px-1 flex`}
+              className={`bg-gray-900 cursor-pointer hover:bg-gray-300 hover:text-gray-900 rounded-md text-gray-100 py-2 px-1 flex`}
               onClick={() => handleChange(val)}
             >
               {val} ({allTraits[filter][val]})

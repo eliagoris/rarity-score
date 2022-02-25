@@ -18,7 +18,7 @@ const Trait = (attribute) => {
           +{attribute.rarity_score?.toFixed(2)}
         </span>
       </div>
-      <div className="flex justify-between w-full text-xs text-gray-700">
+      <div className="flex justify-between w-full text-xs text-gray-100">
         <span>{attribute.value ? attribute.value : "-"} </span>
         {/* <span>{attribute.percentile} | </span> */}
         <span className="font-bold">{attribute.count}</span>
@@ -36,7 +36,7 @@ function NFT({ nft, title }) {
     <>
       <div
         className="flex flex-col items-center justify-center 
-      min-h-screen bg-gray-100"
+      min-h-screen bg-gray-800"
       >
         <NextSeo
           title={nft?.name}
@@ -55,7 +55,7 @@ function NFT({ nft, title }) {
         <Navbar title={title} />
         <div className="flex mb-4 items-start w-full cursor-pointer">
           <a
-            className="text-2xl py-4 px-4 rounded-md bg-gray-200 text-gray-700 hover:text-gray-900 m-4"
+            className="text-2xl py-4 px-4 rounded-md bg-gray-200 text-gray-100 hover:text-gray-900 m-4"
             onClick={() => router.back()}
           >
             <FiArrowLeft />
@@ -66,7 +66,7 @@ function NFT({ nft, title }) {
           className="flex flex-col items-center justify-center 
         w-full flex-1 p-2 rounded-lg text-center mb-8 max-w-xl"
         >
-          <div className="justify-center border p-4 shadow-xl rounded-md bg-white border border-gray-300">
+          <div className="justify-center border p-4 shadow-xl rounded-md bg-gray-900 border border-gray-300">
             <h3 className="text-3xl font-semibold mb-4">{nft?.name}</h3>
             <div className="relative rounded-md px-4 bg-black w-full">
               <img src={img_url} />

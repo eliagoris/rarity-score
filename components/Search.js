@@ -17,12 +17,12 @@ export const Search = (props) => {
   };
   return (
     <div className="px-2 mt-4 w-full">
-      <h3 className="text-xs text-gray-700 uppercase mb-2 font-bold">Search</h3>
+      <h3 className="text-xs text-gray-100 uppercase mb-2 font-bold">Search</h3>
 
       <DebounceInput
         minLength={2}
         debounceTimeout={300}
-        className="bg-gray-200 p-2 hover:bg-gray-100 rounded-md w-full text-xs"
+        className="bg-gray-200 p-2 hover:text-gray-800 rounded-md w-full text-xs"
         placeholder="🔍 Search by token id e.g., 4003"
         onChange={handleChange}
       />

@@ -142,10 +142,10 @@ const filter_nft_attributes = (nft) => {
   );
 };
 
-export const getNFT = (id) => {
+export const getNFT = (name) => {
   // Retrieve nft for id
   // Precompute the frequency of each trait
-  let nft = nfts.find((nft) => nft.id === Number(id));
+  let nft = nfts.find((nft) => nft.name === name);
   if (nft) {
     filter_nft_attributes(nft);
     set_trait_rarity(nft, all_traits);
@@ -165,7 +165,7 @@ const set_nfts_rank = () => {
   console.log("set nfts rank");
 
   nfts = nfts
-    .map((nft) => getNFT(nft.id))
+    .map((nft) => getNFT(nft.name))
     .sort((x, y) => y["rarity_score"] - x["rarity_score"])
     .map((nft, index) => set_nft_rank(nft, index));
 };
@@ -216,7 +216,7 @@ export const getFilters = (traits, atr) => {
 
 export const filterNFTQuery = (nft, query) => {
   if (query) {
-    if (nft.id.toString().includes(query)) return true;
+    if (nft.name.toString().includes(query)) return true;
     return false;
   }
   return true;

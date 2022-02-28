@@ -2,6 +2,7 @@ import React from "react";
 import { ipfs2http } from "../util";
 
 export const NFT = (nft) => {
+  console.log(nft);
   return (
     <>
       <a
@@ -12,7 +13,9 @@ export const NFT = (nft) => {
       >
         <img src={nft.image} className="rounded-md h-auto bg-black" />
         <div className="rounded-b-md py-2 px-2">
-          <h3 className="text-xs text-gray-200">#{nft.id}</h3>
+          <h3 className="text-xs text-gray-200">
+            [#{nft.rarity_rank}] {nft.id}
+          </h3>
         </div>
       </a>
     </>

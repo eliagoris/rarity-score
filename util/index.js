@@ -3,7 +3,7 @@ export const getDesc = (nft) => {
   desc = `
   🔷ID: ${nft.id}
   
-  🔷Rarity score: ${nft.rarity_score.toFixed(2)}
+  🔷Rarity score: ${nft.rarity_score?.toFixed(2)}
   
   🔷Rarity rank: ${nft.rarity_rank + 1}
   

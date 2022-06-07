@@ -78,7 +78,7 @@ function NFT({ nft, title }) {
               </span>
             </div>
             <div className="py-4 px-2 w-full rounded-md text-lg mt-4 bg-red-100 text-red-500">
-              ♦️ {nft.rarity_score.toFixed(2)}
+              ♦️ {nft.rarity_score?.toFixed(2)}
             </div>
             {nft.current_price !== "-" && (
               <div className="py-4 px-2 w-full rounded-md text-lg mt-4 bg-green-100 text-green-500">

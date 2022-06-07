@@ -9,7 +9,7 @@ export const NFT = (nft) => {
         className="text-left w-24
         cursor-pointer rounded-md shadow-xs
         mr-3 mb-3 sm:mr-4 hover:underline text-center"
-        href={`/${nft.name}`}
+        href={`/${encodeURIComponent(nft.name)}`}
       >
         <img src={nft.image} className="rounded-md h-auto bg-black" />
         <div className="rounded-b-md py-2 px-2">

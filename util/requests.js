@@ -9,7 +9,7 @@ let basePath =
 console.log(basePath);
 
 export const getNFT = async (id) => {
-  const res = await fetch(`${basePath}/api/nft?id=${id}`);
+  const res = await fetch(`${basePath}/api/nft?id=${encodeURIComponent(id)}`);
   const data = await res.json();
   return data;
 };

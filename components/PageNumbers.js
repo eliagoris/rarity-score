@@ -9,8 +9,8 @@ export const PageNumbers = (props) => {
   page_id = parseInt(page_id);
 
   let pageElems = Array.from({ length: pages }, (x, i) => i + 1);
-  let start = pageElems.slice(page_id, page_id + 3);
-  let end = pageElems.slice(-3);
+  let start = pageElems.slice(page_id - 4, page_id - 1);
+  let end = pageElems.slice(page_id, page_id + 3);
 
   const manyPages = () => {
     return (

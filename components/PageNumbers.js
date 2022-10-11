@@ -9,7 +9,12 @@ export const PageNumbers = (props) => {
   page_id = parseInt(page_id);
 
   let pageElems = Array.from({ length: pages }, (x, i) => i + 1);
-  let start = pageElems.slice(page_id - 4, page_id - 1);
+
+  let start = [];
+  if (page_id > 1) {
+    start = pageElems.slice(page_id < 4 ? 0 : page_id - 4, page_id - 1);
+  }
+
   let end = pageElems.slice(page_id, page_id + 3);
 
   const manyPages = () => {
